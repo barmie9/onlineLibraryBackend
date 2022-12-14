@@ -61,18 +61,25 @@ ALTER TABLE COMMENT
     ADD CONSTRAINT COMMENT_USER_ID
     FOREIGN KEY (user_id) REFERENCES USER_LIBRARY(id);
 ------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE TRANSACTION(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    date_transaction DATE NOT NULL
+);
+------------------------------------------------------------------------------------------------------------------------
 CREATE TABLE SHOPPING_CART(
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    user_id BIGINT NOT NULL
+    user_id BIGINT NOT NULL,
+    transaction_id BIGINT NULL
 );
 ALTER TABLE SHOPPING_CART
     ADD CONSTRAINT SHOPPING_CART_USER_ID
     FOREIGN KEY (user_id) REFERENCES USER_LIBRARY(id);
+ALTER TABLE SHOPPING_CART
+    ADD CONSTRAINT SHOPPING_CART_TRANSACTION_ID
+    FOREIGN KEY (transaction_id) REFERENCES TRANSACTION(id);
 ------------------------------------------------------------------------------------------------------------------------
 CREATE TABLE CART_ITEM(
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    buying_date DATE NOT NULL,
-    rent_days INTEGER NOT NULL,
     book_id BIGINT NOT NULL,
     shopping_cart_id BIGINT NOT NULL
 );
@@ -83,12 +90,4 @@ ALTER TABLE CART_ITEM
     ADD CONSTRAINT CART_ITEM_SHOPPING_CART_ID
     FOREIGN KEY (shopping_cart_id) REFERENCES SHOPPING_CART(id);
 ------------------------------------------------------------------------------------------------------------------------
-CREATE TABLE TRANSACTION(
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    date_transaction DATE NOT NULL,
-    shopping_cart_id BIGINT NOT NULL
-);
-ALTER TABLE TRANSACTION
-    ADD CONSTRAINT TRANSACTION_SHOPPING_CART_ID
-    FOREIGN KEY (shopping_cart_id) REFERENCES SHOPPING_CART(id);
-------------------------------------------------------------------------------------------------------------------------
+
