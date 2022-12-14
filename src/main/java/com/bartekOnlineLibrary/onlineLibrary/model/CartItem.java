@@ -8,12 +8,9 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class ShoppingCart {
+public class CartItem {
     @Id
     private long id;
-    private long userId;
-    private long transactionId;
-
-
-
+    private long bookId;
+    private long shoppingCartId;
 }

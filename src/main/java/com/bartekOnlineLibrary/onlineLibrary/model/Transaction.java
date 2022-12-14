@@ -5,15 +5,13 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Entity
 @Getter
 @Setter
-public class ShoppingCart {
+public class Transaction {
     @Id
     private long id;
-    private long userId;
-    private long transactionId;
-
-
-
+    private LocalDate date; // To check
 }
