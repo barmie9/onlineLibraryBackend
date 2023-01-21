@@ -5,17 +5,28 @@ insert into BOOK_GENRE (id,name,desc) values(2,'Horor', 'Przerazajace rzecz');
 insert into BOOK_GENRE (id,name,desc) values(3,'Przygodowe', 'Przygody i takie tam');
 ------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------BOOK--------------------------------------------------------------
-insert into BOOK (id,title,price,genre_id) values(1,'Title 1',12,1);
-insert into BOOK (id,title,price,genre_id) values(2,'Title 2',13,2);
-insert into BOOK (id,title,price,genre_id) values(3,'Title 3',11,3);
-insert into BOOK (id,title,price,genre_id) values(4,'Title 4',14,1);
-insert into BOOK (id,title,price,genre_id) values(5,'Title 5',15,2);
-insert into BOOK (id,title,price,genre_id) values(6,'Title 6',16,3);
-insert into BOOK (id,title,price,genre_id) values(7,'Title 7',17,1);
-insert into BOOK (id,title,price,genre_id) values(8,'Title 8',11,1);
-insert into BOOK (id,title,price,genre_id) values(9,'Title 9',14,2);
-insert into BOOK (id,title,price,genre_id) values(10,'Title 10',23,3);
-insert into BOOK (id,title,price,genre_id) values(11,'Title 11',22,1);
+insert into BOOK (id,title,price,content,genre_id)
+values(1,'Title 1',12,'1 - Content ksiazki o czyms tam, trolololo',1);
+insert into BOOK (id,title,price,content,genre_id)
+values(2,'Title 2',13,'2 - Content ksiazki o czyms tam, trolololo',2);
+insert into BOOK (id,title,price,content,genre_id)
+values(3,'Title 3',11,'3 - Content ksiazki o czyms tam, trolololo',3);
+insert into BOOK (id,title,price,content,genre_id)
+values(4,'Title 4',14,'4 - Content ksiazki o czyms tam, trolololo',1);
+insert into BOOK (id,title,price,content,genre_id)
+values(5,'Title 5',15,'5 - Content ksiazki o czyms tam, trolololo',2);
+insert into BOOK (id,title,price,content,genre_id)
+values(6,'Title 6',16,'6 - Content ksiazki o czyms tam, trolololo',3);
+insert into BOOK (id,title,price,content,genre_id)
+values(7,'Title 7',17,'7 - Content ksiazki o czyms tam, trolololo',1);
+insert into BOOK (id,title,price,content,genre_id)
+values(8,'Title 8',11,'8 - Content ksiazki o czyms tam, trolololo',1);
+insert into BOOK (id,title,price,content,genre_id)
+values(9,'Title 9',14,'9 - Content ksiazki o czyms tam, trolololo',2);
+insert into BOOK (id,title,price,content,genre_id)
+values(10,'Title 10',23,'10 - Content ksiazki o czyms tam, trolololo',3);
+insert into BOOK (id,title,price,content,genre_id)
+values(11,'Title 11',22,'11 - Content ksiazki o czyms tam, trolololo',1);
 --insert into BOOK (id,title,price,genre_id) values(,'Title ',12,);
 ------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------AUTHOR----------------------------------------------------------
