@@ -11,11 +11,17 @@ import lombok.ToString;
 @Setter
 @ToString
 public class BookDto  {
+
+    // BOOK
     private long id;
     private String title;
     private int price;
     private String content;
 
+    // BOOK_GENRE
     private String name;
+
+    // AUTHOR
+    private String author;
 
 }

@@ -13,5 +13,5 @@ import java.time.LocalDate;
 public class Transaction {
     @Id
     private long id;
-    private LocalDate date; // To check
+    private LocalDate dateTransaction; // To check
 }

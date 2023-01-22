@@ -28,24 +28,28 @@ CREATE TABLE BOOK(
     title VARCHAR(100) NOT NULL,
     price BIGINT NOT NULL,
     content VARCHAR(20000),
-    genre_id BIGINT
+    genre_id BIGINT,
+    author_id BIGINT
 );
 ALTER TABLE BOOK
     ADD CONSTRAINT BOOK_GENRE_ID
     FOREIGN KEY (genre_id) REFERENCES BOOK_GENRE(id);
+ALTER TABLE BOOK
+    ADD CONSTRAINT BOOK_AUTHOR_ID
+    FOREIGN KEY (author_id) REFERENCES AUTHOR(id);
 
 ------------------------------------------------------------------------------------------------------------------------
-CREATE TABLE BOOK_AUTHORS(
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    book_id BIGINT NOT NULL,
-    author_id BIGINT NULL
-);
-ALTER TABLE BOOK_AUTHORS
-    ADD CONSTRAINT BOOK_AUTHORS_BOOK_ID
-    FOREIGN KEY (book_id) REFERENCES BOOK(id);
-ALTER TABLE BOOK_AUTHORS
-    ADD CONSTRAINT BOOK_AUTHORS_AUTHOR_ID
-    FOREIGN KEY (author_id) REFERENCES AUTHOR(id);
+--CREATE TABLE BOOK_AUTHORS(
+--    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+--    book_id BIGINT NOT NULL,
+--    author_id BIGINT NULL
+--);
+--ALTER TABLE BOOK_AUTHORS
+--    ADD CONSTRAINT BOOK_AUTHORS_BOOK_ID
+--    FOREIGN KEY (book_id) REFERENCES BOOK(id);
+--ALTER TABLE BOOK_AUTHORS
+--    ADD CONSTRAINT BOOK_AUTHORS_AUTHOR_ID
+--    FOREIGN KEY (author_id) REFERENCES AUTHOR(id);
 ------------------------------------------------------------------------------------------------------------------------
 CREATE TABLE COMMENT(
     id BIGINT AUTO_INCREMENT PRIMARY KEY,

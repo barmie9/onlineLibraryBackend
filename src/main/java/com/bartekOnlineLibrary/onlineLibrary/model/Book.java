@@ -20,9 +20,9 @@ public class Book  {
     @JoinColumn(name="genre_id") // maybe genreId
     private BookGenre bookGenre;
 
-//    @OneToOne
-//    @JoinColumn(name="id")
-//    private BookAuthors bookAuthors;
+    @OneToOne
+    @JoinColumn(name="author_id")
+    private Author author;
 
 
 
