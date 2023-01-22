@@ -1,5 +1,6 @@
 package com.bartekOnlineLibrary.onlineLibrary.controller;
 
+import com.bartekOnlineLibrary.onlineLibrary.dto.BookDto;
 import com.bartekOnlineLibrary.onlineLibrary.model.Book;
 import com.bartekOnlineLibrary.onlineLibrary.service.BookService;
 import lombok.RequiredArgsConstructor;
@@ -14,8 +15,12 @@ public class BookController {
 
     private final BookService bookService;
 
-    @GetMapping("/books")
+    @GetMapping("/books_")
     public List<Book> getBooks(){
         return bookService.getBooks();
+    }
+    @GetMapping("/books")
+    public List<BookDto> getBooks2(){
+        return BookDtoMapper.mapToBookDtos(bookService.getBooks());
     }
 }
