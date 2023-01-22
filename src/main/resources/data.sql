@@ -70,3 +70,16 @@ values(1,'admin@domena.com','admin','password','Bob','Bobowski',DATE '1999-3-22'
 insert into USER_LIBRARY (id,email,username,password,name,last_name,date_of_birth)
 values(2,'user_test_01@domena.com','user_01','password','Jan','Nowak',DATE '1993-4-25');
 ------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------TRANSACTIONS------------------------------------------------------------
+insert into TRANSACTION (id,date_transaction) values(1,DATE '2022-1-21');
+------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------SHOPPING_CART-----------------------------------------------------------
+insert into SHOPPING_CART (id,user_id,transaction_id) values (1,1,1);
+------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------CART_ITEM-------------------------------------------------------------
+insert into CART_ITEM (id,book_id,shopping_cart_id) values(1,1,1);
+insert into CART_ITEM (id,book_id,shopping_cart_id) values(2,2,1);
+------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------COMMENT--------------------------------------------------------------
+insert into COMMENT (id,rating,content,created,book_id,user_id) values(1,4,'Nie jest zla', DATE '2022-1-21',1,1);
+insert into COMMENT (id,rating,content,created,book_id,user_id) values(2,3,'Srednia ...', DATE '2022-1-21',2,1);
