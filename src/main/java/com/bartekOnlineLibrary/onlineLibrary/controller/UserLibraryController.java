@@ -4,6 +4,7 @@ import com.bartekOnlineLibrary.onlineLibrary.model.UserLibrary;
 import com.bartekOnlineLibrary.onlineLibrary.service.UserLibraryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,5 +18,10 @@ public class UserLibraryController {
     @GetMapping("/usersLibrary")
     public List<UserLibrary> getUserLibrary(){
         return userLibraryService.getUserLibrary();
+    }
+
+    @GetMapping("/user")
+    public UserLibrary getUser(@RequestParam String username, String password){
+        return userLibraryService.getUserByUsernameAndPass(username,password);
     }
 }

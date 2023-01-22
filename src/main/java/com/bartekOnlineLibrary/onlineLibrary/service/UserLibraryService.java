@@ -16,4 +16,8 @@ public class UserLibraryService {
     public List<UserLibrary> getUserLibrary(){
         return userLibraryRepository.findAll();
     }
+
+    public UserLibrary getUserByUsernameAndPass(String username, String password){
+        return userLibraryRepository.findByUsernameAndPassword(username,password);
+    }
 }
