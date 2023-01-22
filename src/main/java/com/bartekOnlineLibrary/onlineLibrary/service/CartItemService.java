@@ -16,4 +16,9 @@ public class CartItemService {
     public boolean addCartItem(CartItem cartItem){
         return cartItemRepository.save(cartItem) != null;
     }
+
+    @Transactional
+    public void deleteCartItem(Long cartItemId){
+        cartItemRepository.deleteById(cartItemId);
+    }
 }

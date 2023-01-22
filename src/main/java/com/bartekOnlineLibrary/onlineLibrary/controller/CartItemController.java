@@ -4,10 +4,7 @@ import com.bartekOnlineLibrary.onlineLibrary.model.CartItem;
 import com.bartekOnlineLibrary.onlineLibrary.service.CartItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,4 +16,11 @@ public class CartItemController {
     public HttpStatus addItemCart(@RequestBody CartItem cartItem){
         return cartItemService.addCartItem(cartItem) ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
     }
+
+    @RequestMapping(value="/deleteCartItem/{id}", method = RequestMethod.DELETE)
+    public HttpStatus deleteCartItem(@PathVariable Long id){
+        cartItemService.deleteCartItem(id);
+        return HttpStatus.NO_CONTENT;
+    }
+
 }
