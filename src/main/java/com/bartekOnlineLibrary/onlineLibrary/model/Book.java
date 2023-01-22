@@ -12,6 +12,7 @@ public class Book {
     private long id;
     private String title;
     private int price;
+    private String content;
 //    private long genreId;
 
     @OneToOne
