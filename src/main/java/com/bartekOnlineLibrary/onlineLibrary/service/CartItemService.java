@@ -13,8 +13,9 @@ public class CartItemService {
     private final CartItemRepository cartItemRepository;
 
     @Transactional
-    public boolean addCartItem(CartItem cartItem){
-        return cartItemRepository.save(cartItem) != null;
+    public CartItem addCartItem(CartItem cartItem){
+        return cartItemRepository.save(cartItem) ;
+//        return cartItemRepository.save(cartItem) != null;
     }
 
     @Transactional

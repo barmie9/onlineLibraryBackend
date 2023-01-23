@@ -6,6 +6,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
+
 @RestController
 @RequiredArgsConstructor
 public class CartItemController {
@@ -13,8 +17,10 @@ public class CartItemController {
     private final CartItemService cartItemService;
 
     @RequestMapping(value = "/addCartItem", method = RequestMethod.POST)
-    public HttpStatus addItemCart(@RequestBody CartItem cartItem){
-        return cartItemService.addCartItem(cartItem) ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
+    public CartItem addItemCart(@RequestBody CartItem cartItem){
+
+//        return cartItemService.addCartItem(cartItem) ? Map("key1", "value") : Map.of("key1", "value") ;
+        return cartItemService.addCartItem(cartItem);
     }
 
     @RequestMapping(value="/deleteCartItem/{id}", method = RequestMethod.DELETE)
