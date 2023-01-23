@@ -28,6 +28,8 @@ CREATE TABLE BOOK(
     title VARCHAR(100) NOT NULL,
     price BIGINT NOT NULL,
     content VARCHAR(20000),
+    desc_short VARCHAR(400),
+    desc_long VARCHAR(10000),
     genre_id BIGINT,
     author_id BIGINT
 );

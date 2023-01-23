@@ -17,6 +17,8 @@ public class BookDto  {
     private String title;
     private int price;
     private String content;
+    private String descShort;
+    private String descLong;
 
     // BOOK_GENRE
     private String name;

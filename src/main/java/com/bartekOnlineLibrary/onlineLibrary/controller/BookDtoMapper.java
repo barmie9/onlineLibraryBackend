@@ -21,6 +21,8 @@ public class BookDtoMapper {
                 .title(book.getTitle())
                 .price(book.getPrice())
                 .content(book.getContent())
+                .descShort(book.getDescShort())
+                .descLong(book.getDescLong())
                 .name(book.getBookGenre().getName())
                 .author(book.getAuthor().getName()+" "+book.getAuthor().getLastName())
                 .build();

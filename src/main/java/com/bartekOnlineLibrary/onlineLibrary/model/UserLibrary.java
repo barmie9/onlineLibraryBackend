@@ -19,5 +19,5 @@ public class UserLibrary {
     private String name;
     private String lastName;
     private LocalDate dateOfBirth; // To check
-    private Byte picture; // To check
+//    private Byte picture; // To check
 }
