@@ -20,6 +20,15 @@ http://localhost:8080/pay - Zmienia koszyk na transakcje i tworzy nowy koszyk
 }
 ----------------
 http://localhost:8080/login
+http://localhost:8080/register    body:
+{
+"name":"Adam",
+"surname":"Kowalski",
+"username":"kowalskiZiom2",
+"email":"kowalski@kowalski.pl",
+"password":"haslo1",
+"confirm":"haslo1"
+}
 
 DELETE:
 http://localhost:8080/deleteCartItem - Usuwa ksiązke z koszyka (Headers:Username,Password), (body: {"book":id})
