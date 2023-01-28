@@ -1,8 +1,6 @@
 package com.bartekOnlineLibrary.onlineLibrary.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +11,7 @@ import java.time.LocalDate;
 @Setter
 public class UserLibrary {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String email;
     private String username;

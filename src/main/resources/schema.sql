@@ -19,7 +19,7 @@ CREATE TABLE USER_LIBRARY(
     password VARCHAR(100) NOT NULL,
     name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NULL,
-    date_of_birth DATE NOT NULL,
+    date_of_birth DATE NULL,
     picture BLOB NULL
 );
 ------------------------------------------------------------------------------------------------------------------------

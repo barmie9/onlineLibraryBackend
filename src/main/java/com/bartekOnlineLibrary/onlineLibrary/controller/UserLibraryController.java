@@ -37,4 +37,24 @@ public class UserLibraryController {
          return response;
     }
 
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public HashMap<String,String> register(@RequestBody RegisterData registerData){
+        HashMap<String,String> response = new HashMap<>();
+        if(registerData.getPassword().equals(registerData.getConfirm())){
+            String token = userLibraryService.register(registerData);
+            if(token != null){
+                response.put("message","Z sukcesem udało się zakończyć proces rejestracji w aplikacji.");
+                response.put("token", token);
+            }
+            else{
+                response.put("error","Użytkownik już istnieje");
+            }
+        }
+        else{
+            response.put("error","Podałeś dwa różne hasła!");
+        }
+        return response;
+
+    }
+
 }
