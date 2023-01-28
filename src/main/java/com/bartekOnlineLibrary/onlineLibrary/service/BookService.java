@@ -13,7 +13,10 @@ public class BookService {
 
     private final BookRepository bookRepository;
 
-    public List<Book> getBooks(){
-        return bookRepository.findAll();
+    public List<Book> getBooks(Long c){
+        if(c == 0)
+            return bookRepository.findAll();
+        else
+            return bookRepository.findAllByBookGenreId(c);
     }
 }

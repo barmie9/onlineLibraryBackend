@@ -16,7 +16,6 @@ public class Book  {
     private String content;
     private String descShort;
     private String descLong;
-//    private long genreId;
 
     @OneToOne
     @JoinColumn(name="genre_id") // maybe genreId
