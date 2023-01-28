@@ -97,8 +97,10 @@ values(11,'Title 11',22,'11 - Content ksiazki o czyms tam, trolololo',
 ------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------USER_LIBRARY-----------------------------------------------------------
 --insert into USER_LIBRARY (id,email,username,password,name,last_name,date_of_birth,picture) values();
-insert into USER_LIBRARY (id,email,username,password,name,last_name,date_of_birth)
-values(1,'admin@domena.com','admin','password','Bob','Bobowski',DATE '1999-3-22');
+insert into USER_LIBRARY (id,email,username,password,name,last_name,date_of_birth,picture)
+values(1,'admin@domena.com','admin','password','Bob','Bobowski',DATE '1999-3-22',
+FILE_READ('C:/Users/Bartek/Desktop/Projects/JavaProjects/onlineLibrary/admin.jpg'));
+
 insert into USER_LIBRARY (id,email,username,password,name,last_name,date_of_birth)
 values(2,'user_test_01@domena.com','user_01','password','Jan','Nowak',DATE '1993-4-25');
 ------------------------------------------------------------------------------------------------------------------------

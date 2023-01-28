@@ -22,6 +22,6 @@ public class UserLibraryController {
 
     @GetMapping("/user")
     public UserLibrary getUser(@RequestHeader("Username") String username, @RequestHeader("Password") String password){
-        return userLibraryService.getUserByUsernameAndPass(username,password);
+        return userLibraryService.getUserByUsernameAndPassword(username,password);
     }
 }

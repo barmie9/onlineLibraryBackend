@@ -2,6 +2,7 @@ package com.bartekOnlineLibrary.onlineLibrary.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,5 +20,6 @@ public class UserLibrary {
     private String name;
     private String lastName;
     private LocalDate dateOfBirth; // To check
-//    private Byte picture; // To check
+    @Lob
+    private byte[] picture; // To check
 }

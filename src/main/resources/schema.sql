@@ -20,7 +20,7 @@ CREATE TABLE USER_LIBRARY(
     name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NULL,
     date_of_birth DATE NOT NULL,
-    picture BINARY(100) NULL
+    picture BLOB NULL
 );
 ------------------------------------------------------------------------------------------------------------------------
 CREATE TABLE BOOK(
