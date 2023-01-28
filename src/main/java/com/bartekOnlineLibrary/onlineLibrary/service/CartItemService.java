@@ -28,11 +28,10 @@ public class CartItemService {
 
     @Transactional
     public CartItem addCartItem(Long bookId, String username, String password){
-        Long userId;
-        Book book = bookRepository.findById(bookId).get();
-        UserLibrary user = userLibraryRepository.findByUsernameAndPassword(username,password);
-        userId = user.getId();
-        ShoppingCart shoppingCart = shoppingCartRepository.findByUserIdAndTransactionId(userId,null);
+        Book book = getBookById(bookId);
+        UserLibrary user = getUserByUsernameAndPassword(username,password);
+        Long userId = user.getId();
+        ShoppingCart shoppingCart = getUserShoppingCart(userId);
 
         // ------ Sprawdzenie czy książka jest juz kupiona lub w koszyku -------
         List<CartItem> cartItems = cartItemRepository.findByBookId(bookId);
@@ -55,8 +54,30 @@ public class CartItemService {
     }
 
     @Transactional
-    public void deleteCartItem(Long cartItemId){
-        cartItemRepository.deleteById(cartItemId);
+    public boolean deleteCartItem(Long bookId, String username, String password){
+        UserLibrary user = getUserByUsernameAndPassword(username,password);
+        ShoppingCart userCart = getUserShoppingCart(user.getId());
+        CartItem cartItem = cartItemRepository.findByBookIdAndShoppingCartId(bookId,userCart.getId());
+        if(cartItem == null){
+            log.info("\n\n------- NIE ZNALEZIONO KSIAZKI W KOSZYKU\n\n");
+            return false;
+        }
+        else{
+            log.info("\n\n------- USUWANIE \n\n");
+            cartItemRepository.deleteById(cartItem.getId());
+            return true;
+        }
+
+    }
+
+    Book getBookById(Long id){
+        return bookRepository.findById(id).get();
+    }
+    UserLibrary getUserByUsernameAndPassword(String username, String password){
+        return userLibraryRepository.findByUsernameAndPassword(username,password);
+    }
+    ShoppingCart getUserShoppingCart(Long userId){
+        return shoppingCartRepository.findByUserIdAndTransactionId(userId,null);
     }
 
 }
