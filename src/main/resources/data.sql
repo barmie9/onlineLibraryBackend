@@ -104,13 +104,19 @@ values(2,'user_test_01@domena.com','user_01','password','Jan','Nowak',DATE '1993
 ------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------TRANSACTIONS------------------------------------------------------------
 insert into TRANSACTION (id,date_transaction) values(1,DATE '2022-1-21');
+insert into TRANSACTION (id,date_transaction) values(2,DATE '2022-1-22');
 ------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------SHOPPING_CART-----------------------------------------------------------
 insert into SHOPPING_CART (id,user_id,transaction_id) values (1,1,1);
+insert into SHOPPING_CART (id,user_id,transaction_id) values (2,1,2);
+insert into SHOPPING_CART (id,user_id) values (3,1);
 ------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------CART_ITEM-------------------------------------------------------------
 insert into CART_ITEM (id,book_id,shopping_cart_id) values(1,1,1);
 insert into CART_ITEM (id,book_id,shopping_cart_id) values(2,2,1);
+insert into CART_ITEM (id,book_id,shopping_cart_id) values(3,3,2);
+insert into CART_ITEM (id,book_id,shopping_cart_id) values(4,4,3);
+insert into CART_ITEM (id,book_id,shopping_cart_id) values(5,5,3);
 ------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------COMMENT--------------------------------------------------------------
 insert into COMMENT (id,rating,content,created,book_id,user_id) values(1,4,'Nie jest zla', DATE '2022-1-21',1,1);
