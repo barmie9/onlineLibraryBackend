@@ -10,7 +10,7 @@ http://localhost:8080/books?c=0 - Zwraca liste wszystkich lub przefiltrowanych k
 http://localhost:8080/categories - Zwraca liste kategorii/Gatunków
 
 POST:
-http://localhost:8080/addCartItem - Dodaje ksiązke do koszyka (Headers:Username,Password), (body: {"book":id})
+
 http://localhost:8080/pay - Zmienia koszyk na transakcje i tworzy nowy koszyk
 (Headers:Username,Password), body:
 {
@@ -29,6 +29,7 @@ http://localhost:8080/register    body:
 "password":"haslo1",
 "confirm":"haslo1"
 }
+http://localhost:8080/addtocart - Dodaje ksiązke do koszyka (Headers:Token), (body: {"book":id})
 
 DELETE:
 http://localhost:8080/deleteCartItem - Usuwa ksiązke z koszyka (Headers:Username,Password), (body: {"book":id})

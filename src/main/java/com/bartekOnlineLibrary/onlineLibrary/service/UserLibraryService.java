@@ -3,7 +3,9 @@ package com.bartekOnlineLibrary.onlineLibrary.service;
 import com.bartekOnlineLibrary.onlineLibrary.controller.LoginData;
 import com.bartekOnlineLibrary.onlineLibrary.controller.RegisterData;
 import com.bartekOnlineLibrary.onlineLibrary.controller.Token;
+import com.bartekOnlineLibrary.onlineLibrary.model.ShoppingCart;
 import com.bartekOnlineLibrary.onlineLibrary.model.UserLibrary;
+import com.bartekOnlineLibrary.onlineLibrary.repository.ShoppingCartRepository;
 import com.bartekOnlineLibrary.onlineLibrary.repository.UserLibraryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,7 @@ import java.util.List;
 public class UserLibraryService {
 
     private final UserLibraryRepository userLibraryRepository;
+    private final ShoppingCartRepository shoppingCartRepository;
 
     public List<UserLibrary> getUserLibrary(){
         return userLibraryRepository.findAll();
@@ -43,7 +46,13 @@ public class UserLibraryService {
             userLibrary.setDateOfBirth(null);
             userLibrary.setPicture(null);
             UserLibrary response = userLibraryRepository.save(userLibrary);
-            if(response != null){
+
+            // Tworzenie koszyka dla użytkownika
+            ShoppingCart shoppingCart = new ShoppingCart();
+            shoppingCart.setUser(response);
+            shoppingCart.setTransaction(null);
+            ShoppingCart cartResponse = shoppingCartRepository.save(shoppingCart);
+            if(response != null && cartResponse != null){
                 LoginData loginData = new LoginData();
                 loginData.setLogin(registerData.getUsername());
                 loginData.setPass(registerData.getPassword());

@@ -15,12 +15,27 @@ public class CartItemController {
 
     private final CartItemService cartItemService;
 
-    @RequestMapping(value = "/addCartItem", method = RequestMethod.POST)
-    public CartItem addItemCart(@RequestBody JsonToLong book, @RequestHeader("Username") String username, @RequestHeader("Password") String password){
+    @RequestMapping(value = "/addtocart", method = RequestMethod.POST)
+    public HashMap<String,String> addItemCart(@RequestBody JsonToLong book, @RequestHeader("Token") String token){
+        LoginData loginData = Token.checkToken(token);
+        CartItem cartItem = null;
+        HashMap<String,String> response = new HashMap<>();
+        if(loginData == null){
+            response.put("error","Nie jesteś zalogowany");
+            return response;
+        }
+        else{
+           cartItem= cartItemService.addCartItem(book.getBook(),loginData.getLogin(),loginData.getPass());
+        }
 
-        CartItem cartItem= cartItemService.addCartItem(book.getBook(),username,password);
-        if(cartItem != null) return cartItem;
-        else return new CartItem(); // Do poprawy (Na razie zwraca pustego CartItem jesli ksiazka jest juz w koszyku lub kupiona)
+
+        if(cartItem != null){
+            response.put("message","Produkt dodano do koszyka");
+        }
+        else{
+            response.put("message","Nie doodano do koszyka");
+        }
+        return response;
     }
 
     @RequestMapping(value="/deleteCartItem", method = RequestMethod.DELETE)
