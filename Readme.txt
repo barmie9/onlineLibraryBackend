@@ -7,6 +7,7 @@ http://localhost:8080/user - Zwraca dane uzytkownika (Headers:Username,Password)
 -------
 http://localhost:8080/cart - Zwraca liste książek z koszyka (Headers:Token)
 http://localhost:8080/books?c=0 - Zwraca liste wszystkich lub przefiltrowanych książek z BAZY
+http://localhost:8080/categories - Zwraca liste kategorii/Gatunków
 
 POST:
 http://localhost:8080/addCartItem - Dodaje ksiązke do koszyka (Headers:Username,Password), (body: {"book":id})

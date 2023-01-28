@@ -13,10 +13,23 @@ public class BookService {
 
     private final BookRepository bookRepository;
 
-    public List<Book> getBooks(Long c){
-        if(c == 0)
-            return bookRepository.findAll();
-        else
-            return bookRepository.findAllByBookGenreId(c);
+    public List<Book> getBooks(Long c,String q){
+        List<Book> allBooks;
+        if(c != null && c==0 ){
+            allBooks = bookRepository.findAll();
+        }
+        else if(c != null && c >0 ){
+            allBooks = bookRepository.findAllByBookGenreId(c);
+        }
+        else{
+            allBooks = bookRepository.findAll();
+        }
+
+        if(q != null){
+            return allBooks.stream()
+                    .filter(e -> e.getTitle().toLowerCase().contains(q.toLowerCase()))
+                    .toList();
+        }
+        else  return  allBooks;
     }
 }

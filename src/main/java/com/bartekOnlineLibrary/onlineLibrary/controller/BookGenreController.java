@@ -14,7 +14,7 @@ public class BookGenreController {
 
     private final BookGenreService bookGenreService;
 
-    @GetMapping("/bookGenres")
+    @GetMapping("/categories")
     public List<BookGenre> getBookGenres(){
         return bookGenreService.getBookGenres();
     }

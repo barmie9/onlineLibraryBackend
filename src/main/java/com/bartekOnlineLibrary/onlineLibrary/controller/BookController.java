@@ -13,8 +13,8 @@ public class BookController {
     private final BookService bookService;
 
     @RequestMapping(value = "/books", method = RequestMethod.GET)
-    public List<BookDto> getBooks(@RequestParam(value = "c") Long c){
-        return BookDtoMapper.mapToBookDtos(bookService.getBooks(c));
+    public List<BookDto> getBooks(@RequestParam(value = "c", required = false) Long c, @RequestParam(value = "q", required = false) String q){
+        return BookDtoMapper.mapToBookDtos(bookService.getBooks(c,q));
     }
 
 }
