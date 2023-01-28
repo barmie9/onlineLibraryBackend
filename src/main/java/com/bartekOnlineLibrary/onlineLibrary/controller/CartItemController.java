@@ -2,12 +2,12 @@ package com.bartekOnlineLibrary.onlineLibrary.controller;
 
 import com.bartekOnlineLibrary.onlineLibrary.model.CartItem;
 import com.bartekOnlineLibrary.onlineLibrary.service.CartItemService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
+
 
 
 @RestController
@@ -17,10 +17,11 @@ public class CartItemController {
     private final CartItemService cartItemService;
 
     @RequestMapping(value = "/addCartItem", method = RequestMethod.POST)
-    public CartItem addItemCart(@RequestBody CartItem cartItem){
+    public CartItem addItemCart(@RequestBody JsonToLong book, @RequestHeader("Username") String username, @RequestHeader("Password") String password){
 
-//        return cartItemService.addCartItem(cartItem) ? Map("key1", "value") : Map.of("key1", "value") ;
-        return cartItemService.addCartItem(cartItem);
+        CartItem cartItem= cartItemService.addCartItem(book.getBook(),username,password);
+        if(cartItem != null) return cartItem;
+        else return new CartItem(); // Do poprawy (Na razie zwraca pustego CartItem jesli ksiazka jest juz w koszyku lub kupiona)
     }
 
     @RequestMapping(value="/deleteCartItem/{id}", method = RequestMethod.DELETE)
@@ -30,3 +31,4 @@ public class CartItemController {
     }
 
 }
+

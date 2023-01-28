@@ -112,11 +112,11 @@ insert into SHOPPING_CART (id,user_id,transaction_id) values (2,1,2);
 insert into SHOPPING_CART (id,user_id) values (3,1);
 ------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------CART_ITEM-------------------------------------------------------------
-insert into CART_ITEM (id,book_id,shopping_cart_id) values(1,1,1);
-insert into CART_ITEM (id,book_id,shopping_cart_id) values(2,2,1);
-insert into CART_ITEM (id,book_id,shopping_cart_id) values(3,3,2);
-insert into CART_ITEM (id,book_id,shopping_cart_id) values(4,4,3);
-insert into CART_ITEM (id,book_id,shopping_cart_id) values(5,5,3);
+insert into CART_ITEM (id,book_id,shopping_cart_id) values(default,1,1);
+insert into CART_ITEM (id,book_id,shopping_cart_id) values(default,2,1);
+insert into CART_ITEM (id,book_id,shopping_cart_id) values(default,3,2);
+insert into CART_ITEM (id,book_id,shopping_cart_id) values(default,4,3);
+insert into CART_ITEM (id,book_id,shopping_cart_id) values(default,5,3);
 ------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------COMMENT--------------------------------------------------------------
 insert into COMMENT (id,rating,content,created,book_id,user_id) values(1,4,'Nie jest zla', DATE '2022-1-21',1,1);

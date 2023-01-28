@@ -1,7 +1,6 @@
 package com.bartekOnlineLibrary.onlineLibrary.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +9,12 @@ import lombok.Setter;
 @Setter
 public class CartItem {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private long bookId;
-    private long shoppingCartId;
+//    private long shoppingCartId;
+
+    @OneToOne
+    @JoinColumn(name="shopping_cart_id")
+    private ShoppingCart shoppingCart;
 }
