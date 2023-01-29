@@ -17,13 +17,17 @@ public class BookDto  {
     private String title;
     private int price;
     private String content;
-    private String descShort;
-    private String descLong;
+    private String description;
+    private String descriptionLong;
 
     // BOOK_GENRE
-    private String name;
+    private String genreText;
+    private long genre;
 
     // AUTHOR
     private String author;
+
+    //COMMENT
+    private int rating;
 
 }

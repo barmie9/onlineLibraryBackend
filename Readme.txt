@@ -2,12 +2,12 @@
 
 GET:
 http://localhost:8080/bookGenres - Zwraca liste wszystkich Gatunków
-http://localhost:8080/myBooks - Zwraca liste książek uzytkownika (Headers:Username,Password)
 http://localhost:8080/user - Zwraca dane uzytkownika (Headers:Username,Password)
 -------
 http://localhost:8080/cart - Zwraca liste książek z koszyka (Headers:Token)
 http://localhost:8080/books?c=0 - Zwraca liste wszystkich lub przefiltrowanych książek z BAZY
 http://localhost:8080/categories - Zwraca liste kategorii/Gatunków
+http://localhost:8080/mybooks - Zwraca liste książek uzytkownika (Headers:Token)
 
 POST:
 
@@ -30,7 +30,7 @@ http://localhost:8080/register    body:
 "confirm":"haslo1"
 }
 http://localhost:8080/addtocart - Dodaje ksiązke do koszyka (Headers:Token), (body: {"book":id})
-http://localhost:8080/removefromcart - Usuwa ksiązke z koszyka (Headers:Username,Password), (body: {"book":id})
+http://localhost:8080/removefromcart - Usuwa 1 ksiązke z koszyka (Headers:Token), (body: {"book":id})
 
 DELETE:
 

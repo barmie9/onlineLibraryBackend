@@ -104,14 +104,18 @@ FILE_READ('C:/Users/Bartek/Desktop/Projects/JavaProjects/onlineLibrary/admin.jpg
 insert into USER_LIBRARY (id,email,username,password,name,last_name,date_of_birth)
 values(default,'user_test_01@domena.com','user_01','password','Jan','Nowak',DATE '1993-4-25');
 ------------------------------------------------------------------------------------------------------------------------
--------------------------------------------------TRANSACTIONS------------------------------------------------------------
+-------------------------------------------------TRANSACTIONS-----------------------------------------------------------
 insert into TRANSACTION (id,date_transaction) values(1,DATE '2022-1-21');
 insert into TRANSACTION (id,date_transaction) values(2,DATE '2022-1-22');
+insert into TRANSACTION (id,date_transaction) values(3,DATE '2022-1-22');
 ------------------------------------------------------------------------------------------------------------------------
--------------------------------------------------SHOPPING_CART-----------------------------------------------------------
+-------------------------------------------------SHOPPING_CART----------------------------------------------------------
 insert into SHOPPING_CART (id,user_id,transaction_id) values (default,1,1);
 insert into SHOPPING_CART (id,user_id,transaction_id) values (default,1,2);
 insert into SHOPPING_CART (id,user_id) values (default,1);
+
+insert into SHOPPING_CART (id,user_id,transaction_id) values (default,2,3);
+insert into SHOPPING_CART (id,user_id) values (default,2);
 ------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------CART_ITEM-------------------------------------------------------------
 insert into CART_ITEM (id,book_id,shopping_cart_id) values(default,1,1);
@@ -119,7 +123,12 @@ insert into CART_ITEM (id,book_id,shopping_cart_id) values(default,2,1);
 insert into CART_ITEM (id,book_id,shopping_cart_id) values(default,3,2);
 insert into CART_ITEM (id,book_id,shopping_cart_id) values(default,4,3);
 insert into CART_ITEM (id,book_id,shopping_cart_id) values(default,5,3);
+
+insert into CART_ITEM (id,book_id,shopping_cart_id) values(default,1,4);
 ------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------COMMENT--------------------------------------------------------------
-insert into COMMENT (id,rating,content,created,book_id,user_id) values(1,4,'Nie jest zla', DATE '2022-1-21',1,1);
-insert into COMMENT (id,rating,content,created,book_id,user_id) values(2,3,'Srednia ...', DATE '2022-1-21',2,1);
+insert into COMMENT (id,rating,content,created,book_id,user_id) values(default,4,'Nie jest zla', DATE '2022-1-21',1,1);
+insert into COMMENT (id,rating,content,created,book_id,user_id) values(default,3,'Srednia ...', DATE '2022-1-21',2,1);
+insert into COMMENT (id,rating,content,created,book_id,user_id) values(default,2,'Beznadziejna ...', DATE '2022-1-21',3,1);
+
+insert into COMMENT (id,rating,content,created,book_id,user_id) values(default,2,'Slabiutka', DATE '2022-1-21',1,2);
