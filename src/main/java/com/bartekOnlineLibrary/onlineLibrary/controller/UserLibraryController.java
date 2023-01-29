@@ -96,6 +96,7 @@ public class UserLibraryController {
                 else{
                     userLibraryService.changePassword(changePasswordForm,loginData);
                     response.put("message","Hasło zostało zmienione.");
+                    response.put("Token",Token.setToken(loginData));
                 }
 
             }
