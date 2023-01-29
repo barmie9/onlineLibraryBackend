@@ -97,11 +97,11 @@ public class UserLibraryService {
     public boolean updateProfile(ProfileDto2 profileDto2,LoginData loginData) {
         UserLibrary user = userLibraryRepository.findByUsernameAndPassword(loginData.getLogin(), loginData.getPass());
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-//        String date = "1999-11-23";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
         LocalDate localDate = LocalDate.parse(profileDto2.getDob(), formatter);
 
-        userLibraryRepository.updateProfile(user.getId(),profileDto2.getName(),profileDto2.getSurname(),profileDto2.getEmail(),localDate);
+        userLibraryRepository.updateUser(profileDto2.getEmail(),user.getUsername(),user.getPassword(),profileDto2.getName(),profileDto2.getSurname(),localDate, user.getPicture(), user.getId());
         return true;
     }
 }

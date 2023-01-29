@@ -16,12 +16,12 @@ public interface UserLibraryRepository extends JpaRepository<UserLibrary,Long> {
 
     UserLibrary findByUsername(String username);
 
-    @Modifying
-    @Query("UPDATE UserLibrary u SET u.name = :name, u.lastName = :surname, u.email = :email, u.dateOfBirth = :dob WHERE u.id = :userId")
-    void updateProfile(@Param("userId") Long userId, @Param("name") String name, @Param("surname") String surname, @Param("email") String email, @Param("dob") LocalDate dob);
-
 //    @Modifying
-//    @Transactional
-//    @Query("UPDATE ShoppingCart s SET s.transaction.id = :transactionId WHERE s.user.id = :userId and s.transaction.id = null")
-//    void updateTransactionById(@Param("transactionId") Long transactionId, @Param("userId") Long userId );
+//    @Query("UPDATE UserLibrary u SET u.name = :name, u.lastName = :surname, u.email = :email, u.dateOfBirth = :dob WHERE u.id = :userId")
+//    void updateProfile(@Param("userId") Long userId, @Param("name") String name, @Param("surname") String surname, @Param("email") String email, @Param("dob") LocalDate dob);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE UserLibrary u SET u.email = ?1, u.username = ?2, u.password = ?3, u.name = ?4, u.lastName = ?5, u.dateOfBirth = ?6, u.picture = ?7 WHERE u.id = ?8")
+    void updateUser(String email, String username, String password, String name, String lastName, LocalDate dateOfBirth, byte[] picture, long id);
 }
