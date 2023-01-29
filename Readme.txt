@@ -8,6 +8,7 @@ http://localhost:8080/cart - Zwraca liste książek z koszyka (Headers:Token)
 http://localhost:8080/books?c=0 - Zwraca liste wszystkich lub przefiltrowanych książek z BAZY
 http://localhost:8080/categories - Zwraca liste kategorii/Gatunków
 http://localhost:8080/mybooks - Zwraca liste książek uzytkownika (Headers:Token)
+http://localhost:8080/read.php?id=1 - Zwraca dane ksiazki:title,author,content (Headers:Token)
 
 POST:
 

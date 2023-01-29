@@ -1,6 +1,7 @@
 package com.bartekOnlineLibrary.onlineLibrary.controller;
 
 import com.bartekOnlineLibrary.onlineLibrary.dto.BookDto;
+import com.bartekOnlineLibrary.onlineLibrary.dto.BookReadDto;
 import com.bartekOnlineLibrary.onlineLibrary.model.Book;
 
 import java.util.List;
@@ -30,6 +31,20 @@ public class BookDtoMapper {
                 .genre(book.getBookGenre().getId())
                 .author(book.getAuthor().getName()+" "+book.getAuthor().getLastName())
                 .rating(getRating())
+                .build();
+    }
+
+
+    public static List<BookReadDto> mapToBookReadDtos(List<Book> books){
+        return books.stream()
+                .map(BookDtoMapper::mapToBookReadDto)
+                .collect(Collectors.toList());
+    }
+    public static BookReadDto mapToBookReadDto(Book book){
+        return BookReadDto.builder()
+                .title(book.getTitle())
+                .content(book.getContent())
+                .author(book.getAuthor().getName() + " " + book.getAuthor().getLastName())
                 .build();
     }
 
