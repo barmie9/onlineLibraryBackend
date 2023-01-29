@@ -5,7 +5,10 @@ import com.bartekOnlineLibrary.onlineLibrary.dto.ProfileDto2;
 import com.bartekOnlineLibrary.onlineLibrary.dto.ProfileDtoMaper;
 import com.bartekOnlineLibrary.onlineLibrary.model.UserLibrary;
 import com.bartekOnlineLibrary.onlineLibrary.service.UserLibraryService;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -23,13 +26,17 @@ public class UserLibraryController {
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
-    public ProfileDto getUser(@RequestHeader("Token") String token){
+    public ResponseEntity<ProfileDto>  getUser(@RequestHeader("Token") String token){
         LoginData loginData = Token.checkToken(token);
-        if(loginData == null) return null;
+
+        if(loginData == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+        }
+
         else{
             UserLibrary user = userLibraryService.getUserByUsernameAndPassword(loginData.getLogin(), loginData.getPass());
             ProfileDto profile = ProfileDtoMaper.mapToProfileDto(user);
-            return profile;
+            return ResponseEntity.status(HttpStatus.OK).body(profile);
         }
 
     }
@@ -110,4 +117,5 @@ public class UserLibraryController {
         }
         return  response;
     }
+
 }
