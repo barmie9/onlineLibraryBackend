@@ -3,6 +3,7 @@ package com.bartekOnlineLibrary.onlineLibrary.service;
 import com.bartekOnlineLibrary.onlineLibrary.controller.LoginData;
 import com.bartekOnlineLibrary.onlineLibrary.controller.RegisterData;
 import com.bartekOnlineLibrary.onlineLibrary.controller.Token;
+import com.bartekOnlineLibrary.onlineLibrary.dto.ProfileDto2;
 import com.bartekOnlineLibrary.onlineLibrary.model.ShoppingCart;
 import com.bartekOnlineLibrary.onlineLibrary.model.Transaction;
 import com.bartekOnlineLibrary.onlineLibrary.model.UserLibrary;
@@ -13,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -90,5 +92,16 @@ public class UserLibraryService {
 
         return true;
 
+    }
+
+    public boolean updateProfile(ProfileDto2 profileDto2,LoginData loginData) {
+        UserLibrary user = userLibraryRepository.findByUsernameAndPassword(loginData.getLogin(), loginData.getPass());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+//        String date = "1999-11-23";
+        LocalDate localDate = LocalDate.parse(profileDto2.getDob(), formatter);
+
+        userLibraryRepository.updateProfile(user.getId(),profileDto2.getName(),profileDto2.getSurname(),profileDto2.getEmail(),localDate);
+        return true;
     }
 }

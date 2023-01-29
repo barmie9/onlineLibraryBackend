@@ -1,6 +1,7 @@
 package com.bartekOnlineLibrary.onlineLibrary.controller;
 
 import com.bartekOnlineLibrary.onlineLibrary.dto.ProfileDto;
+import com.bartekOnlineLibrary.onlineLibrary.dto.ProfileDto2;
 import com.bartekOnlineLibrary.onlineLibrary.dto.ProfileDtoMaper;
 import com.bartekOnlineLibrary.onlineLibrary.model.UserLibrary;
 import com.bartekOnlineLibrary.onlineLibrary.service.UserLibraryService;
@@ -53,7 +54,7 @@ public class UserLibraryController {
             String token = userLibraryService.register(registerData);
             if(token != null){
                 response.put("message","Z sukcesem udało się zakończyć proces rejestracji w aplikacji.");
-                response.put("token", token);
+                response.put("Token", token);
             }
             else{
                 response.put("error","Użytkownik już istnieje");
@@ -63,7 +64,19 @@ public class UserLibraryController {
             response.put("error","Podałeś dwa różne hasła!");
         }
         return response;
-
     }
 
+    @RequestMapping(value = "/updateprofile", method = RequestMethod.POST)
+    public HashMap<String, String> updateProfile(@RequestHeader("Token") String token, @RequestBody ProfileDto2 profileDto2){
+        LoginData loginData = Token.checkToken(token);
+        HashMap<String,String> response = new HashMap<>();
+        if(loginData == null){
+            response.put("error","Jesteś nie zalogowany");
+        }
+        else{
+            userLibraryService.updateProfile(profileDto2,loginData);
+            response.put("message","Profil zaaktualizowany");
+        }
+        return  response;
+    }
 }
