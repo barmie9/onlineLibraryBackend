@@ -4,12 +4,15 @@ import com.bartekOnlineLibrary.onlineLibrary.controller.LoginData;
 import com.bartekOnlineLibrary.onlineLibrary.controller.RegisterData;
 import com.bartekOnlineLibrary.onlineLibrary.controller.Token;
 import com.bartekOnlineLibrary.onlineLibrary.model.ShoppingCart;
+import com.bartekOnlineLibrary.onlineLibrary.model.Transaction;
 import com.bartekOnlineLibrary.onlineLibrary.model.UserLibrary;
 import com.bartekOnlineLibrary.onlineLibrary.repository.ShoppingCartRepository;
+import com.bartekOnlineLibrary.onlineLibrary.repository.TransactionRepository;
 import com.bartekOnlineLibrary.onlineLibrary.repository.UserLibraryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -18,6 +21,7 @@ public class UserLibraryService {
 
     private final UserLibraryRepository userLibraryRepository;
     private final ShoppingCartRepository shoppingCartRepository;
+    private final TransactionRepository transactionRepository;
 
     public List<UserLibrary> getUserLibrary(){
         return userLibraryRepository.findAll();
@@ -64,7 +68,27 @@ public class UserLibraryService {
             }
         }
         else return null;
+    }
 
+    public boolean pay(LoginData loginData){
+        UserLibrary user = userLibraryRepository.findByUsernameAndPassword(loginData.getLogin(), loginData.getPass());
+        ShoppingCart shoppingCart = shoppingCartRepository.findByUserIdAndTransactionId(user.getId(),null);
+
+        //Tworzenie nowej transakcji
+        Transaction newTransaction = new Transaction();
+        newTransaction.setDateTransaction(LocalDate.now());
+        Transaction transaction = transactionRepository.save(newTransaction);
+
+        // Zminana poprzedniego koszyka użytkownika. Zminana transakcji na id nowo powstałej tranzakcji
+        shoppingCartRepository.updateTransactionById(transaction.getId(), user.getId());
+
+        //Tworzenie nowego koszyka
+        ShoppingCart newShoppingCart = new ShoppingCart();
+        newShoppingCart.setTransaction(null);
+        newShoppingCart.setUser(user);
+        shoppingCartRepository.save(newShoppingCart);
+
+        return true;
 
     }
 }

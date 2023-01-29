@@ -105,9 +105,9 @@ insert into USER_LIBRARY (id,email,username,password,name,last_name,date_of_birt
 values(default,'user_test_01@domena.com','user_01','password','Jan','Nowak',DATE '1993-4-25');
 ------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------TRANSACTIONS-----------------------------------------------------------
-insert into TRANSACTION (id,date_transaction) values(1,DATE '2022-1-21');
-insert into TRANSACTION (id,date_transaction) values(2,DATE '2022-1-22');
-insert into TRANSACTION (id,date_transaction) values(3,DATE '2022-1-22');
+insert into TRANSACTION (id,date_transaction) values(default,DATE '2022-1-21');
+insert into TRANSACTION (id,date_transaction) values(default,DATE '2022-1-22');
+insert into TRANSACTION (id,date_transaction) values(default,DATE '2022-1-22');
 ------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------SHOPPING_CART----------------------------------------------------------
 insert into SHOPPING_CART (id,user_id,transaction_id) values (default,1,1);

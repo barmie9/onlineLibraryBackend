@@ -5,8 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PayForm {
-    private String method;
-    private String blikCode;
-    private String cardData;
+public class PayResponseForm {
+    String message;
+    boolean success;
 }

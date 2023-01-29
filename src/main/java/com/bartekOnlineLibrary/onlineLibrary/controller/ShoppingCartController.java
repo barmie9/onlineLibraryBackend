@@ -3,11 +3,11 @@ package com.bartekOnlineLibrary.onlineLibrary.controller;
 import com.bartekOnlineLibrary.onlineLibrary.dto.BookDto;
 import com.bartekOnlineLibrary.onlineLibrary.model.ShoppingCart;
 import com.bartekOnlineLibrary.onlineLibrary.service.ShoppingCartService;
+import com.bartekOnlineLibrary.onlineLibrary.service.UserLibraryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -15,6 +15,7 @@ import java.util.List;
 public class ShoppingCartController {
 
     private final ShoppingCartService shoppingCartService;
+    private final UserLibraryService userLibraryService;
 
     @GetMapping("/carts")
     public List<ShoppingCart> getShoppingCarts(){
@@ -37,15 +38,30 @@ public class ShoppingCartController {
         }
 
     }
-    @RequestMapping(value = "/pay", method = RequestMethod.POST)
-    public HashMap<String,String> payForCart(@RequestHeader("Username") String username, @RequestHeader("Password") String password,@RequestBody  PayForm payForm){
-        return getResponse("STATUS","OK");
-    }
+    @RequestMapping(value = "/payblik", method = RequestMethod.POST)
+    public PayResponseForm payForCart(@RequestHeader("Token") String token,@RequestBody payBlikForm payBlikForm){
+        LoginData loginData = Token.checkToken(token);
+        PayResponseForm payResponseForm = new PayResponseForm();
+        if(loginData == null) {
+            payResponseForm.setMessage("nie jestes zalogowany");
+            payResponseForm.setSuccess(false);
+            return payResponseForm;
+        }
+        else{
+            if(payBlikForm.getCode().equals("123456"))
+            {
+                userLibraryService.pay(loginData);
+                payResponseForm.setMessage("Płatność ukończona pomyślnie");
+                payResponseForm.setSuccess(true);
+                return payResponseForm;
+            }
+            else{
+                payResponseForm.setMessage("Zły kod blik");
+                payResponseForm.setSuccess(false);
+                return payResponseForm;
+            }
+        }
 
-    public HashMap<String,String> getResponse(String name, String status){
-        HashMap<String, String> response = new HashMap<String, String>();
-        response.put(name,status);
-        return response;
     }
 
 
