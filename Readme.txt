@@ -30,6 +30,7 @@ http://localhost:8080/register    body:
 "confirm":"haslo1"
 }
 http://localhost:8080/addtocart - Dodaje ksiązke do koszyka (Headers:Token), (body: {"book":id})
+http://localhost:8080/removefromcart - Usuwa ksiązke z koszyka (Headers:Username,Password), (body: {"book":id})
 
 DELETE:
-http://localhost:8080/deleteCartItem - Usuwa ksiązke z koszyka (Headers:Username,Password), (body: {"book":id})
+

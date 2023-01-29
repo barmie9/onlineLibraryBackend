@@ -18,7 +18,7 @@ public class CartItemController {
     @RequestMapping(value = "/addtocart", method = RequestMethod.POST)
     public HashMap<String,String> addItemCart(@RequestBody JsonToLong book, @RequestHeader("Token") String token){
         LoginData loginData = Token.checkToken(token);
-        CartItem cartItem = null;
+        CartItem cartItem ;
         HashMap<String,String> response = new HashMap<>();
         if(loginData == null){
             response.put("error","Nie jesteś zalogowany");
@@ -38,20 +38,26 @@ public class CartItemController {
         return response;
     }
 
-    @RequestMapping(value="/deleteCartItem", method = RequestMethod.DELETE)
-    public HashMap<String,String> deleteCartItem(@RequestBody JsonToLong book, @RequestHeader("Username") String username, @RequestHeader("Password") String password){
-        if(cartItemService.deleteCartItem(book.getBook(),username,password))
-        {
-            return getResponse("BOOK REMOVE","OK");
+    @RequestMapping(value="/removefromcart", method = RequestMethod.POST)
+    public HashMap<String,String> deleteCartItem(@RequestBody JsonToLong book, @RequestHeader("Token") String token){
+        LoginData loginData = Token.checkToken(token);
+        if(loginData == null){
+            return getResponse("error","Nie jesteś zalogowany");
         }
-        else{
-            return getResponse("BOOK REMOVE","ERROR");
+        else {
+            if( cartItemService.deleteCartItem(book.getBook(), loginData.getLogin(), loginData.getPass()) ){
+                return getResponse("message","Produkt pomyślnie wyeliminowany");
+            }
+            else{
+                return getResponse("error","Nie znaleziono ksiązki w koszyku");
+            }
         }
-
     }
 
+
+    //------------------------------------------------------------------------------------------------------------------
     public HashMap<String,String> getResponse(String name, String status){
-        HashMap<String, String> response = new HashMap<String, String>();
+        HashMap<String, String> response = new HashMap<>();
         response.put(name,status);
         return response;
     }
