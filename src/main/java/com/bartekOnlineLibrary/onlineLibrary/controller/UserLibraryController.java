@@ -1,5 +1,7 @@
 package com.bartekOnlineLibrary.onlineLibrary.controller;
 
+import com.bartekOnlineLibrary.onlineLibrary.dto.ProfileDto;
+import com.bartekOnlineLibrary.onlineLibrary.dto.ProfileDtoMaper;
 import com.bartekOnlineLibrary.onlineLibrary.model.UserLibrary;
 import com.bartekOnlineLibrary.onlineLibrary.service.UserLibraryService;
 import lombok.RequiredArgsConstructor;
@@ -19,9 +21,16 @@ public class UserLibraryController {
         return userLibraryService.getUserLibrary();
     }
 
-    @GetMapping("/user")
-    public UserLibrary getUser(@RequestHeader("Username") String username, @RequestHeader("Password") String password){
-        return userLibraryService.getUserByUsernameAndPassword(username,password);
+    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    public ProfileDto getUser(@RequestHeader("Token") String token){
+        LoginData loginData = Token.checkToken(token);
+        if(loginData == null) return null;
+        else{
+            UserLibrary user = userLibraryService.getUserByUsernameAndPassword(loginData.getLogin(), loginData.getPass());
+            ProfileDto profile = ProfileDtoMaper.mapToProfileDto(user);
+            return profile;
+        }
+
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
