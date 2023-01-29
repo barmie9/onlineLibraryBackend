@@ -8,9 +8,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ProfileDto {
+    Long id;
     String name;
     String surname;
     String email;
     String dob;
-    String photo;
 }

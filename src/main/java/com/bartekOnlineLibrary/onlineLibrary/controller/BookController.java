@@ -6,11 +6,17 @@ import com.bartekOnlineLibrary.onlineLibrary.dto.BookReadDto;
 import com.bartekOnlineLibrary.onlineLibrary.model.Book;
 import com.bartekOnlineLibrary.onlineLibrary.service.BookService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -43,6 +49,21 @@ public class BookController {
     public BookDescDto getBookDesc(@RequestParam(value = "id") Long id){
         Book book = bookService.getBookDesc(id);
         return BookDescDtoMapper.mapToBookDescDto(book);
+    }
+
+    @GetMapping("/pictures/{filename}")
+    public ResponseEntity<InputStreamResource> downloadFile(@PathVariable String filename) throws IOException {
+        File file = new File("zdj/" + filename + ".jpg");
+        if(!file.exists()){
+            file = new File("zdj/default.jpg");
+        }
+        InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + file.getName())
+                .contentType(MediaType.IMAGE_JPEG)
+                .contentLength(file.length())
+                .body(resource);
     }
 
 }

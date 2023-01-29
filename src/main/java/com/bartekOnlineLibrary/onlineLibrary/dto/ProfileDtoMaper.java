@@ -20,12 +20,11 @@ public class ProfileDtoMaper {
 
     public static ProfileDto mapToProfileDto(UserLibrary profile){
         return ProfileDto.builder()
+                .id(profile.getId())
                 .name(profile.getName())
                 .surname(profile.getLastName())
                 .email(profile.getEmail())
                 .dob(profile.getDateOfBirth().format(DateTimeFormatter.ofPattern("yyyy/MM/dd")))
-//                .photo("http://localhost:8080/image/profile/"+ String.valueOf(profile.getId()) )
-                .photo("https://static.zakumaj.pl/data/store/2015/10/98d0a565-4d35-88fb-5557-3977dee48380/picture_large.jpg")
                 .build();
     }
 }
