@@ -82,7 +82,7 @@ public class ShoppingCartController {
                 return payResponseForm;
             }
             else{
-                payResponseForm.setMessage("Zły kod blik");
+                payResponseForm.setMessage("Złe dane karty");
                 payResponseForm.setSuccess(false);
                 return payResponseForm;
             }

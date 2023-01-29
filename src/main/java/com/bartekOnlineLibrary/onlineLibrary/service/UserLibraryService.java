@@ -1,5 +1,6 @@
 package com.bartekOnlineLibrary.onlineLibrary.service;
 
+import com.bartekOnlineLibrary.onlineLibrary.controller.ChangePasswordForm;
 import com.bartekOnlineLibrary.onlineLibrary.controller.LoginData;
 import com.bartekOnlineLibrary.onlineLibrary.controller.RegisterData;
 import com.bartekOnlineLibrary.onlineLibrary.controller.Token;
@@ -102,6 +103,12 @@ public class UserLibraryService {
         LocalDate localDate = LocalDate.parse(profileDto2.getDob(), formatter);
 
         userLibraryRepository.updateUser(profileDto2.getEmail(),user.getUsername(),user.getPassword(),profileDto2.getName(),profileDto2.getSurname(),localDate, user.getPicture(), user.getId());
+        return true;
+    }
+
+    public boolean changePassword(ChangePasswordForm changePasswordForm, LoginData loginData){
+        UserLibrary user = userLibraryRepository.findByUsernameAndPassword(loginData.getLogin(), loginData.getPass());
+        userLibraryRepository.updatePassword(changePasswordForm.getNewPassword(),user.getId());
         return true;
     }
 }

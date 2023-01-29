@@ -79,4 +79,31 @@ public class UserLibraryController {
         }
         return  response;
     }
+
+    @RequestMapping(value = "/changepassword", method = RequestMethod.POST)
+    public HashMap<String, String> changePassword(@RequestHeader("Token") String token, @RequestBody ChangePasswordForm changePasswordForm){
+        LoginData loginData = Token.checkToken(token);
+        HashMap<String,String> response = new HashMap<>();
+        if(loginData == null){
+            response.put("error","Jesteś nie zalogowany");
+        }
+        else{
+            if(loginData.getPass().equals(changePasswordForm.getOld())){
+                if(!changePasswordForm.getNewPassword().equals(changePasswordForm.getConfirm())){
+                    response.put("error","Dwa różne hasła");
+                    return  response;
+                }
+                else{
+                    userLibraryService.changePassword(changePasswordForm,loginData);
+                    response.put("message","Hasło zostało zmienione.");
+                }
+
+            }
+            else{
+                response.put("error","Stare hasło niepoprawwne");
+                return  response;
+            }
+        }
+        return  response;
+    }
 }
