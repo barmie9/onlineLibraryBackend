@@ -50,7 +50,7 @@ public class UserLibraryService {
             userLibrary.setPassword(registerData.getPassword());
             userLibrary.setLastName(registerData.getSurname());
             userLibrary.setUsername(registerData.getUsername());
-            userLibrary.setDateOfBirth(null);
+            userLibrary.setDateOfBirth(LocalDate.now());
             userLibrary.setPicture(null);
             UserLibrary response = userLibraryRepository.save(userLibrary);
 

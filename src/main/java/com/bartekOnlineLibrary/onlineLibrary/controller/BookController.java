@@ -55,7 +55,12 @@ public class BookController {
     public ResponseEntity<InputStreamResource> downloadFile(@PathVariable String filename) throws IOException {
         File file = new File("zdj/" + filename + ".jpg");
         if(!file.exists()){
-            file = new File("zdj/default.jpg");
+            if(filename.contains("book")){
+                file = new File("zdj/default_book.jpg");
+            }
+            else {
+                file = new File("zdj/default_profile.jpg");
+            }
         }
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
 
