@@ -30,6 +30,7 @@ public class BookDtoMapper {
                 .genreText(book.getBookGenre().getName())
                 .genre(book.getBookGenre().getId())
                 .author(book.getAuthor().getName()+" "+book.getAuthor().getLastName())
+                .picture("https://legionowo.pl/img/artykuly/1/2016_09/13374.jpg")
                 .rating(getRating())
                 .build();
     }

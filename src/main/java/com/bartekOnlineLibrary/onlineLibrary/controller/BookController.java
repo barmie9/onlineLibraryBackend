@@ -1,4 +1,6 @@
 package com.bartekOnlineLibrary.onlineLibrary.controller;
+import com.bartekOnlineLibrary.onlineLibrary.dto.BookDescDto;
+import com.bartekOnlineLibrary.onlineLibrary.dto.BookDescDtoMapper;
 import com.bartekOnlineLibrary.onlineLibrary.dto.BookDto;
 import com.bartekOnlineLibrary.onlineLibrary.dto.BookReadDto;
 import com.bartekOnlineLibrary.onlineLibrary.model.Book;
@@ -31,6 +33,12 @@ public class BookController {
                 return BookDtoMapper.mapToBookReadDto(book);
             }
         }
+    }
+
+    @RequestMapping(value = "/bookdescription", method = RequestMethod.GET)
+    public BookDescDto getBookDesc(@RequestParam(value = "id") Long id){
+        Book book = bookService.getBookDesc(id);
+        return BookDescDtoMapper.mapToBookDescDto(book);
     }
 
 }

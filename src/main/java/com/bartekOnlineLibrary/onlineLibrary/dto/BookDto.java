@@ -19,6 +19,7 @@ public class BookDto  {
     private String content;
     private String description;
     private String descriptionLong;
+    private String picture;
 
     // BOOK_GENRE
     private String genreText;

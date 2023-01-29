@@ -78,6 +78,14 @@ public class BookService {
 
         return cartsToBook(carts);
     }
+
+
+    public Book getBookDesc (Long id){
+        Book book = bookRepository.findById(id).get();
+
+        return book;
+    }
+
     private List<Book> cartsToBook(List<ShoppingCart> carts){
         List<CartItem> cartItems = new ArrayList<>();
         for (ShoppingCart c: carts) {
@@ -96,6 +104,7 @@ public class BookService {
         }
         return booksFromCart;
     }
+
 
 
 }
