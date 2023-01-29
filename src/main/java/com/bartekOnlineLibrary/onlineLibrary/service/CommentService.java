@@ -15,7 +15,6 @@ public class CommentService {
 
       int getAverageRating(Long bookId){
         List<Comment> comments = commentRepository.findAllByBookId(bookId);
-//         List<Comment> comments = getComme
         int sum=0;
         int number=0;
 
