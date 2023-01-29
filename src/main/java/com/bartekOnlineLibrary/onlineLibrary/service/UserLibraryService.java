@@ -98,7 +98,7 @@ public class UserLibraryService {
     public boolean updateProfile(ProfileDto2 profileDto2,LoginData loginData) {
         UserLibrary user = userLibraryRepository.findByUsernameAndPassword(loginData.getLogin(), loginData.getPass());
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 
         LocalDate localDate = LocalDate.parse(profileDto2.getDob(), formatter);
 

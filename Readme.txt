@@ -34,7 +34,7 @@ POST:
 -http://localhost:8080/paycard - Zmienia koszyk na transakcje i tworzy nowy koszyk (Headers:Token), body:
 {"processor":"card","numer":"6969696969696969","cvv":"420","holder":"Jan Kowalski"}
 -http://localhost:8080/updateprofile (Headers:Token), body:
-{"name":"Jan","surname":"Kowalski","email":"kowalski98@costam.com","dob":"1999-11-23"}
+{"name":"Jan","surname":"Kowalski","email":"kowalski98@costam.com","dob":"1999/11/23"}
 -http://localhost:8080/changepassword (Headers:Token), body:
 {"old":"password","newPassword":"haslo1","confirm":"haslo1"}
 
