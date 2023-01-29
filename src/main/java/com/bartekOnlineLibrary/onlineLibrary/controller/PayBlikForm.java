@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class payBlikForm {
+public class PayBlikForm {
     private String processor;
     private String code;
 }

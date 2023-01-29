@@ -39,7 +39,7 @@ public class ShoppingCartController {
 
     }
     @RequestMapping(value = "/payblik", method = RequestMethod.POST)
-    public PayResponseForm payForCart(@RequestHeader("Token") String token,@RequestBody payBlikForm payBlikForm){
+    public PayResponseForm payForCart(@RequestHeader("Token") String token,@RequestBody PayBlikForm payBlikForm){
         LoginData loginData = Token.checkToken(token);
         PayResponseForm payResponseForm = new PayResponseForm();
         if(loginData == null) {
@@ -61,8 +61,35 @@ public class ShoppingCartController {
                 return payResponseForm;
             }
         }
-
     }
+
+    @RequestMapping(value = "/paycard", method = RequestMethod.POST)
+    public PayResponseForm payForCartByCard(@RequestHeader("Token") String token,@RequestBody PayCardForm payCardForm){
+        LoginData loginData = Token.checkToken(token);
+        PayResponseForm payResponseForm = new PayResponseForm();
+        if(loginData == null) {
+            payResponseForm.setMessage("nie jestes zalogowany");
+            payResponseForm.setSuccess(false);
+            return payResponseForm;
+        }
+        else{
+            if(payCardForm.getProcessor().equals("card") && payCardForm.getNumer().equals("6969696969696969") &&
+                    payCardForm.getCvv().equals("420") && payCardForm.getHolder().equals("Jan Kowalski"))
+            {
+                userLibraryService.pay(loginData);
+                payResponseForm.setMessage("Płatność ukończona pomyślnie");
+                payResponseForm.setSuccess(true);
+                return payResponseForm;
+            }
+            else{
+                payResponseForm.setMessage("Zły kod blik");
+                payResponseForm.setSuccess(false);
+                return payResponseForm;
+            }
+        }
+    }
+
+
 
 
 }

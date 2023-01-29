@@ -30,6 +30,8 @@ POST:
 "processor":"blik",
 "code":"123456"
 }
+-http://localhost:8080/paycard - Zmienia koszyk na transakcje i tworzy nowy koszyk (Headers:Token), body:
+{"processor":"card","numer":"6969696969696969","cvv":"420","holder":"Jan Kowalski"}
 
 
 
