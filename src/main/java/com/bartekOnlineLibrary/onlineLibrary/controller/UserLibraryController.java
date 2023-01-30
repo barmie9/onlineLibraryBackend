@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.List;
@@ -119,6 +120,23 @@ public class UserLibraryController {
             }
         }
         return ResponseEntity.status(HttpStatus.OK).body( response);
+    }
+
+
+    @RequestMapping(value = "/updatephoto" ,method = RequestMethod.PUT)
+    public ResponseEntity<HashMap<String,String>> updatePhoto(@RequestHeader("Token") String token, @RequestParam("file") MultipartFile photo) {
+        LoginData loginData = Token.checkToken(token);
+        HashMap<String,String> response = new HashMap<>();
+        if(loginData == null) {
+            response.put("error","Jesteś nie zalogowany");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body( response);
+        }
+        else{
+            String fileName = userLibraryService.savePhoto(photo,loginData);
+            response.put("message","Zdjęcie Zapisano");
+            return ResponseEntity.ok().body(response);
+        }
+
     }
 
 }

@@ -13,7 +13,11 @@ import com.bartekOnlineLibrary.onlineLibrary.repository.TransactionRepository;
 import com.bartekOnlineLibrary.onlineLibrary.repository.UserLibraryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -111,4 +115,29 @@ public class UserLibraryService {
         userLibraryRepository.updatePassword(changePasswordForm.getNewPassword(),user.getId());
         return true;
     }
+
+    public String savePhoto(MultipartFile file, LoginData loginData){
+        Long idUser = userLibraryRepository.findByUsernameAndPassword(loginData.getLogin(),loginData.getPass()).getId();
+
+        String fileName = "profile_5.jpg";
+//        String fileName = file.getOriginalFilename();
+//        Path filePath = photosDirectory.resolve(fileName);
+        Path path = Paths.get("zdj/");
+        Path newPath = path.resolve(fileName);
+        try {
+            file.transferTo(newPath);
+        } catch (IOException e) {
+            throw new RuntimeException("Błąd podczas zapisywania zdjęcia " + fileName, e);
+        }
+        return fileName;
+    }
+
+    //Moze sie przydac
+//    private  MultipartFile convertPngToJpg(MultipartFile file) throws IOException {
+//        BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(file.getBytes()));
+//        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+//        ImageIO.write(bufferedImage, "jpg", byteArrayOutputStream);
+//        return new ByteArrayMultipartFile(byteArrayOutputStream.toByteArray(), "image/jpeg", "convertedImage.jpg");
+//    }
+
 }
