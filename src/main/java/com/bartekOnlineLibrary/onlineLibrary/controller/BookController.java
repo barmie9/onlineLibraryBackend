@@ -62,13 +62,23 @@ public class BookController {
                 file = new File("zdj/default_profile.jpg");
             }
         }
+
         InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
 
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + file.getName())
-                .contentType(MediaType.IMAGE_JPEG)
-                .contentLength(file.length())
-                .body(resource);
+        if(filename.contains("profile")){
+            return ResponseEntity.ok()
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + file.getName())
+                    .header(HttpHeaders.CACHE_CONTROL, "no-store")
+                    .contentType(MediaType.IMAGE_JPEG)
+                    .contentLength(file.length())
+                    .body(resource);
+        }
+        else{
+            return ResponseEntity.ok()
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + file.getName())
+                    .contentType(MediaType.IMAGE_JPEG)
+                    .contentLength(file.length())
+                    .body(resource);
+        }
     }
-
 }
