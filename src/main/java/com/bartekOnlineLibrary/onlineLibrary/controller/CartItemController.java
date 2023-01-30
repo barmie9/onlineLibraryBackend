@@ -36,7 +36,7 @@ public class CartItemController {
             response.put("message","Produkt dodano do koszyka");
         }
         else{
-            response.put("message","Nie doodano do koszyka");
+            response.put("message","Posiadasz tą pozycję lub znajduje się w koszyku");
         }
         return ResponseEntity.status(HttpStatus.OK).body( response );
     }

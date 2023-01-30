@@ -18,58 +18,58 @@ insert into AUTHOR (id,name,last_name,data_of_birth,data_of_death) values (8,'Ba
 ------------------------------------------------------BOOK--------------------------------------------------------------
 insert into BOOK (id,title,price,content,desc_short,desc_long,genre_id,author_id)
 values(1,'Title 1',12,'1 - Content ksiazki o czyms tam, trolololo',
-'1 - Krotkie opis ksiazki',
-'1 - Dlugi opis ksiazki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
+'1 - Krótki opis książki',
+'1 - Dlugi opis książki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
 1,8);
 insert into BOOK (id,title,price,content,desc_short,desc_long,genre_id,author_id)
 values(2,'Title 2',13,'2 - Content ksiazki o czyms tam, trolololo',
-'2 - Krotkie opis ksiazki',
-'2 - Dlugi opis ksiazki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
+'2 - Krótki opis książki',
+'2 - Dlugi opis książki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
 2,7);
 insert into BOOK (id,title,price,content,desc_short,desc_long,genre_id,author_id)
 values(3,'Title 3',11,'3 - Content ksiazki o czyms tam, trolololo',
-'3 - Krotkie opis ksiazki',
-'3 - Dlugi opis ksiazki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
+'3 - Krótki opis książki',
+'3 - Dlugi opis książki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
 3,6);
 insert into BOOK (id,title,price,content,desc_short,desc_long,genre_id,author_id)
 values(4,'Title 4',14,'4 - Content ksiazki o czyms tam, trolololo',
-'4 - Krotkie opis ksiazki',
-'4 - Dlugi opis ksiazki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
+'4 - Krótki opis książki',
+'4 - Dlugi opis książki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
 1,5);
 insert into BOOK (id,title,price,content,desc_short,desc_long,genre_id,author_id)
 values(5,'Title 5',15,'5 - Content ksiazki o czyms tam, trolololo',
-'5 - Krotkie opis ksiazki',
-'5 - Dlugi opis ksiazki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
+'5 - Krótki opis książki',
+'5 - Dlugi opis książki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
 2,4);
 insert into BOOK (id,title,price,content,desc_short,desc_long,genre_id,author_id)
 values(6,'Title 6',16,'6 - Content ksiazki o czyms tam, trolololo',
-'6 - Krotkie opis ksiazki',
-'6 - Dlugi opis ksiazki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
+'6 - Krótki opis książki',
+'6 - Dlugi opis książki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
 3,3);
 insert into BOOK (id,title,price,content,desc_short,desc_long,genre_id,author_id)
 values(7,'Title 7',17,'7 - Content ksiazki o czyms tam, trolololo',
-'7 - Krotkie opis ksiazki',
-'7 - Dlugi opis ksiazki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
+'7 - Krótki opis książki',
+'7 - Dlugi opis książki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
 1,2);
 insert into BOOK (id,title,price,content,desc_short,desc_long,genre_id,author_id)
 values(8,'Title 8',11,'8 - Content ksiazki o czyms tam, trolololo',
-'8 - Krotkie opis ksiazki',
-'8 - Dlugi opis ksiazki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
+'8 - Krótki opis książki',
+'8 - Dlugi opis książki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
 1,1);
 insert into BOOK (id,title,price,content,desc_short,desc_long,genre_id,author_id)
 values(9,'Title 9',14,'9 - Content ksiazki o czyms tam, trolololo',
-'9 - Krotkie opis ksiazki',
-'9 - Dlugi opis ksiazki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
+'9 - Krótki opis książki',
+'9 - Dlugi opis książki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
 2,2);
 insert into BOOK (id,title,price,content,desc_short,desc_long,genre_id,author_id)
 values(10,'Title 10',23,'10 - Content ksiazki o czyms tam, trolololo',
-'10 - Krotkie opis ksiazki',
-'10 - Dlugi opis ksiazki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
+'10 - Krótki opis książki',
+'10 - Dlugi opis książki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
 3,1);
 insert into BOOK (id,title,price,content,desc_short,desc_long,genre_id,author_id)
 values(11,'Title 11',22,'11 - Content ksiazki o czyms tam, trolololo',
-'11 - Krotkie opis ksiazki',
-'11 - Dlugi opis ksiazki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
+'11 - Krótki opis książki',
+'11 - Dlugi opis książki. Do rodzinnego domu przyjeżdża ze szkół w Wilnie na wakacje młody Tadeusz. Okazuje się, że Soplicowo, majątek jego opiekuna Sędziego Soplicy, jest pełne gości, którzy zjechali tu, aby uczestniczyć w procesie o stary zamek, niegdyś własność bogatego  magnata Stolnika Horeszki.',
 1,2);
 ------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------BOOK_AUTHORS--------------------------------------------------------------

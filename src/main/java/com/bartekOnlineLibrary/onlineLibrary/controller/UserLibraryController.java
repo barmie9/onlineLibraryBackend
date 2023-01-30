@@ -115,7 +115,7 @@ public class UserLibraryController {
 
             }
             else{
-                response.put("error","Stare hasło niepoprawwne");
+                response.put("error","Stare hasło niepoprawne");
                 return ResponseEntity.status(HttpStatus.OK).body( response);
             }
         }
