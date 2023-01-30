@@ -20,7 +20,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Base64;
 import java.util.List;
+import java.nio.file.Files;
 
 @Service
 @RequiredArgsConstructor
@@ -116,28 +118,24 @@ public class UserLibraryService {
         return true;
     }
 
-    public String savePhoto(MultipartFile file, LoginData loginData){
+    public boolean savePhoto(String file, LoginData loginData){
         Long idUser = userLibraryRepository.findByUsernameAndPassword(loginData.getLogin(),loginData.getPass()).getId();
 
-        String fileName = "profile_5.jpg";
-//        String fileName = file.getOriginalFilename();
-//        Path filePath = photosDirectory.resolve(fileName);
+        String fileName = "profile_";
+        fileName += idUser.toString() + ".jpg";
+
         Path path = Paths.get("zdj/");
         Path newPath = path.resolve(fileName);
+
+        byte[] imageBytes = Base64.getDecoder().decode(file);
+
         try {
-            file.transferTo(newPath);
+            Files.write(path, imageBytes);
+            return true;
         } catch (IOException e) {
-            throw new RuntimeException("Błąd podczas zapisywania zdjęcia " + fileName, e);
+            return false;
         }
-        return fileName;
+
+
     }
-
-    //Moze sie przydac
-//    private  MultipartFile convertPngToJpg(MultipartFile file) throws IOException {
-//        BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(file.getBytes()));
-//        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-//        ImageIO.write(bufferedImage, "jpg", byteArrayOutputStream);
-//        return new ByteArrayMultipartFile(byteArrayOutputStream.toByteArray(), "image/jpeg", "convertedImage.jpg");
-//    }
-
 }

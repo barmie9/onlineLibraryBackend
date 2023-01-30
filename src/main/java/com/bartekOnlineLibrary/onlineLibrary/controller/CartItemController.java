@@ -17,7 +17,7 @@ public class CartItemController {
 
     private final CartItemService cartItemService;
 
-    @RequestMapping(value = "/addtocart", method = RequestMethod.POST)
+    @RequestMapping(value = "/addtocart", method = RequestMethod.PUT)
     public ResponseEntity<HashMap<String,String>> addItemCart(@RequestBody JsonToLong book, @RequestHeader("Token") String token){
         LoginData loginData = Token.checkToken(token);
         CartItem cartItem ;
@@ -41,7 +41,7 @@ public class CartItemController {
         return ResponseEntity.status(HttpStatus.OK).body( response );
     }
 
-    @RequestMapping(value="/removefromcart", method = RequestMethod.POST)
+    @RequestMapping(value="/removefromcart", method = RequestMethod.DELETE)
     public ResponseEntity<HashMap<String,String>> deleteCartItem(@RequestBody JsonToLong book, @RequestHeader("Token") String token){
         LoginData loginData = Token.checkToken(token);
         HashMap<String,String> response = new HashMap<>();

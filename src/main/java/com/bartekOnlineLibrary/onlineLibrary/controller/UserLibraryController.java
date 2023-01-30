@@ -124,7 +124,7 @@ public class UserLibraryController {
 
 
     @RequestMapping(value = "/updatephoto" ,method = RequestMethod.PUT)
-    public ResponseEntity<HashMap<String,String>> updatePhoto(@RequestHeader("Token") String token, @RequestParam("file") MultipartFile photo) {
+    public ResponseEntity<HashMap<String,String>> updatePhoto(@RequestHeader("Token") String token, @RequestBody String file) {
         LoginData loginData = Token.checkToken(token);
         HashMap<String,String> response = new HashMap<>();
         if(loginData == null) {
@@ -132,11 +132,17 @@ public class UserLibraryController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body( response);
         }
         else{
-            String fileName = userLibraryService.savePhoto(photo,loginData);
-            response.put("message","Zdjęcie Zapisano");
+            boolean isSave = userLibraryService.savePhoto(file,loginData);
+            if(isSave){
+                response.put("message","Zdjęcie Zapisano");
+            }
+            else{
+                response.put("error","Nie udało się zapisać zdjęcia");
+            }
             return ResponseEntity.ok().body(response);
         }
-
     }
+
+
 
 }
