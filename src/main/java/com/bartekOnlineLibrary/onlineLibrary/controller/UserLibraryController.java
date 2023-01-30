@@ -124,7 +124,7 @@ public class UserLibraryController {
 
 
     @RequestMapping(value = "/updatephoto" ,method = RequestMethod.PUT)
-    public ResponseEntity<HashMap<String,String>> updatePhoto(@RequestHeader("Token") String token, @RequestBody String file) {
+    public ResponseEntity<HashMap<String,String>> updatePhoto(@RequestHeader("Token") String token, @RequestBody JsonToString file) {
         LoginData loginData = Token.checkToken(token);
         HashMap<String,String> response = new HashMap<>();
         if(loginData == null) {
@@ -132,7 +132,7 @@ public class UserLibraryController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body( response);
         }
         else{
-            boolean isSave = userLibraryService.savePhoto(file,loginData);
+            boolean isSave = userLibraryService.savePhoto(file.getFile(),loginData);
             if(isSave){
                 response.put("message","Zdjęcie Zapisano");
             }

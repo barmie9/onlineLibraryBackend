@@ -130,7 +130,7 @@ public class UserLibraryService {
         byte[] imageBytes = Base64.getDecoder().decode(file);
 
         try {
-            Files.write(path, imageBytes);
+            Files.write(newPath, imageBytes);
             return true;
         } catch (IOException e) {
             return false;
